@@ -1,0 +1,92 @@
+{
+  "name": "@narkdown/client",
+  "version": "0.0.0",
+  "description": "Get unlimited response of Notion API",
+  "keywords": [
+    "notion",
+    "notionapi",
+    "notion-api",
+    "markdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narkdown/client.git"
+  },
+  "license": "MIT",
+  "author": "Younho Choo <yo+github@younho9.com>",
+  "type": "commonjs",
+  "main": "dist/src/index.js",
+  "types": "dist/types/src/index.d.ts",
+  "files": [
+    "dist/src",
+    "dist/types/src"
+  ],
+  "scripts": {
+    "prebuild": "yarn clean:dist",
+    "build": "tsc",
+    "clean": "yarn clean:dist && yarn clean:modules",
+    "clean:dist": "rimraf dist",
+    "clean:modules": "rimraf node_modules",
+    "format": "prettier --ignore-path ./node_modules/@younho9/prettier-config/.prettierignore",
+    "format:pkg": "sort-package-json",
+    "git:commit-msg": "commitlint --edit",
+    "git:install-hooks": "husky install",
+    "git:pre-commit": "lint-staged",
+    "lint": "xo",
+    "prepare": "yarn git:install-hooks",
+    "release": "npx np",
+    "test": "xo && jest"
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional"
+  },
+  "lint-staged": {
+    "*.{cjs,ts,json,md}": [
+      "yarn format --write"
+    ],
+    "*.{cjs,ts,json}": [
+      "yarn lint --fix"
+    ],
+    "package.json": [
+      "yarn format:pkg"
+    ]
+  },
+  "xo": {
+    "prettier": true,
+    "rules": {
+      "@typescript-eslint/naming-convention": "off",
+      "import/extensions": "off"
+    }
+  },
+  "prettier": "@younho9/prettier-config",
+  "dependencies": {
+    "@notionhq/client": "0.4.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "13.2.1",
+    "@commitlint/config-conventional": "13.2.0",
+    "@narkdown/notion-faker": "0.2.1",
+    "@tsconfig/node16": "1.0.2",
+    "@types/faker": "5.5.9",
+    "@types/jest": "27.0.2",
+    "@types/node": "16.11.6",
+    "@younho9/prettier-config": "2.2.4",
+    "dotenv": "10.0.0",
+    "husky": "7.0.4",
+    "jest": "27.3.1",
+    "lint-staged": "11.2.6",
+    "prettier": "2.4.1",
+    "rimraf": "3.0.2",
+    "sort-package-json": "1.52.0",
+    "ts-jest": "27.0.7",
+    "ts-node": "10.4.0",
+    "typescript": "^4.4.3",
+    "xo": "0.46.4"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
