@@ -15,11 +15,10 @@
   "license": "MIT",
   "author": "Younho Choo <yo+github@younho9.com>",
   "type": "commonjs",
-  "main": "dist/src/index.js",
-  "types": "dist/types/src/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "files": [
-    "dist/src",
-    "dist/types/src"
+    "dist"
   ],
   "scripts": {
     "prebuild": "yarn clean:dist",
