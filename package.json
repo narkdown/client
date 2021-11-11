@@ -62,12 +62,7 @@
           }
         }
       ],
-      [
-        "@babel/preset-typescript",
-        {
-          "onlyRemoveTypeImports": true
-        }
-      ]
+      "@babel/preset-typescript"
     ]
   },
   "xo": {
