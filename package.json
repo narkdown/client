@@ -23,7 +23,9 @@
   ],
   "scripts": {
     "prebuild": "yarn clean:dist",
-    "build": "tsc",
+    "build": "yarn build:src && yarn build:types",
+    "build:src": "babel src --extensions .ts -d dist --source-maps",
+    "build:types": "tsc",
     "clean": "yarn clean:dist && yarn clean:modules",
     "clean:dist": "rimraf dist",
     "clean:modules": "rimraf node_modules",
@@ -51,6 +53,24 @@
       "yarn format:pkg"
     ]
   },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "12"
+          }
+        }
+      ],
+      [
+        "@babel/preset-typescript",
+        {
+          "onlyRemoveTypeImports": true
+        }
+      ]
+    ]
+  },
   "xo": {
     "prettier": true,
     "rules": {
@@ -63,10 +83,14 @@
     "@notionhq/client": "0.4.4"
   },
   "devDependencies": {
+    "@babel/cli": "7.16.0",
+    "@babel/core": "7.16.0",
+    "@babel/preset-env": "7.16.0",
+    "@babel/preset-typescript": "7.16.0",
     "@commitlint/cli": "13.2.1",
     "@commitlint/config-conventional": "13.2.0",
     "@narkdown/notion-faker": "0.2.1",
-    "@tsconfig/node16": "1.0.2",
+    "@tsconfig/node12": "1.0.9",
     "@types/faker": "5.5.9",
     "@types/jest": "27.0.2",
     "@types/node": "16.11.6",
