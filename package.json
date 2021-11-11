@@ -1,6 +1,6 @@
 {
   "name": "@narkdown/client",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Get unlimited response of Notion API",
   "keywords": [
     "notion",
