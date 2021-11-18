@@ -1,6 +1,6 @@
 import process from 'node:process';
 import dotenv from 'dotenv';
-import NotionFaker from '@narkdown/notion-faker';
+import {NotionFaker} from '@narkdown/notion-faker';
 import {QueryDatabaseResponse} from '@notionhq/client/build/src/api-endpoints';
 import {NarkdownClient} from '../src';
 
