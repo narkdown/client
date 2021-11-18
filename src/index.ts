@@ -4,7 +4,7 @@ import {
   QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 
-export default class NarkdownClient extends NotionClient {
+export class NarkdownClient extends NotionClient {
   public readonly unlimited = {
     databases: {
       /**
