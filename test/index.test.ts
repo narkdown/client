@@ -8,6 +8,7 @@ dotenv.config();
 
 const NOTION_API_KEY = process.env.NOTION_API_KEY!;
 const ENTRY_POINT_PAGE_ID = process.env.ENTRY_POINT_PAGE_ID!;
+const EXAMPLE_DATABASE = process.env.EXAMPLE_DATABASE!;
 const narkdown: NarkdownClient = new NarkdownClient({auth: NOTION_API_KEY});
 const notionFaker: NotionFaker = new NotionFaker();
 const ROW_COUNT = 200;
@@ -30,30 +31,29 @@ beforeAll(async () => {
 
   TEST_PAGE_ID = testPageId;
 
+  const {properties: scheme} = await narkdown.databases.retrieve({
+    database_id: EXAMPLE_DATABASE,
+  });
+
   const {id: testDatabaseId} = await narkdown.databases.create({
     parent: {
       page_id: TEST_PAGE_ID,
     },
     title: notionFaker.database.title()()(),
-    properties: {
-      title: notionFaker.database.properties.title(),
-    },
+    properties: notionFaker.database.properties.propertiesByScheme(scheme),
+    icon: notionFaker.icon.emoji(),
+    cover: notionFaker.cover('image.image')(),
   });
 
   TEST_DATABASE_ID = testDatabaseId;
-
-  await Promise.all(
-    Array.from({
-      length: ROW_COUNT,
-    }).map(async () =>
-      narkdown.pages.create({
-        parent: {database_id: TEST_DATABASE_ID},
-        properties: {
-          title: notionFaker.page.properties.title('address.cityName')()(),
-        },
-      }),
-    ),
-  );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  for (const _ of Array.from({length: ROW_COUNT})) {
+    // eslint-disable-next-line no-await-in-loop
+    await narkdown.pages.create({
+      parent: {database_id: TEST_DATABASE_ID},
+      properties: notionFaker.page.properties.propertiesByScheme(scheme),
+    });
+  }
 
   response = await narkdown.unlimited.databases.queryAll({
     database_id: TEST_DATABASE_ID,
