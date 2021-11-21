@@ -55,13 +55,13 @@ beforeAll(async () => {
     ),
   );
 
-  response = await narkdown.unlimited.databases.queryAll({
+  response = await narkdown.unlimited.databases.query({
     database_id: TEST_DATABASE_ID,
   });
 }, TIMEOUT);
 
 /** {@link https://developers.notion.com/reference/pagination#responses} */
-describe('response of narkdown.unlimited.databases.queryAll', () => {
+describe('response of narkdown.unlimited.databases.query', () => {
   it(
     'has properties',
     async () => {

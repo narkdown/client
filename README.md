@@ -34,7 +34,7 @@ const narkdown = new NarkdownClient({
 >
 > See the complete list of endpoints in the [Notion API reference](https://developers.notion.com/reference)
 
-### `unlimited.databases.queryAll`
+### `unlimited.databases.query`
 
 > Unlimited version of [Query a database](https://developers.notion.com/reference/post-database-query)
 
@@ -45,7 +45,7 @@ const narkdown = new NarkdownClient({auth: process.env.NOTION_API_KEY});
 
 (async () => {
   const databaseId = '897e5a76-ae52-4b48-9fdf-e71f5945d1af';
-  const response = await narkdown.unlimited.databases.queryAll({
+  const response = await narkdown.unlimited.databases.query({
     database_id: databaseId,
     filter: {
       or: [

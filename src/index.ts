@@ -10,7 +10,7 @@ export class NarkdownClient extends NotionClient {
       /**
        * Query a database without pagination
        */
-      queryAll: async ({
+      query: async ({
         start_cursor,
         ...rest
       }: QueryDatabaseParameters): Promise<QueryDatabaseResponse> => {
