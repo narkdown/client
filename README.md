@@ -34,6 +34,24 @@ const narkdown = new NarkdownClient({
 >
 > See the complete list of endpoints in the [Notion API reference](https://developers.notion.com/reference)
 
+### `unlimited.blocks.children.list`
+
+> Unlimited version of [Retrieve block children](https://developers.notion.com/reference/get-block-children)
+
+```javascript
+const {NarkdownClient} = require('@narkdown/client');
+
+const narkdown = new NarkdownClient({auth: process.env.NOTION_API_KEY});
+
+(async () => {
+  const blockId = 'b55c9c91-384d-452b-81db-d1ef79372b75';
+  const response = await narkdown.unlimited.blocks.children.list({
+    block_id: blockId,
+  });
+  console.log(response);
+})();
+```
+
 ### `unlimited.databases.query`
 
 > Unlimited version of [Query a database](https://developers.notion.com/reference/post-database-query)
@@ -69,6 +87,57 @@ const narkdown = new NarkdownClient({auth: process.env.NOTION_API_KEY});
         direction: 'ascending',
       },
     ],
+  });
+  console.log(response);
+})();
+```
+
+### `unlimited.databases.list`
+
+> Unlimited version of [List databases (deprecated)](https://developers.notion.com/reference/get-databases)
+
+```javascript
+const {NarkdownClient} = require('@narkdown/client');
+
+const narkdown = new NarkdownClient({auth: process.env.NOTION_API_KEY});
+
+(async () => {
+  const response = await narkdown.unlimited.databases.list();
+  console.log(response);
+})();
+```
+
+### `unlimited.users.list`
+
+> Unlimited version of [List all users](https://developers.notion.com/reference/get-users)
+
+```javascript
+const {NarkdownClient} = require('@narkdown/client');
+
+const narkdown = new NarkdownClient({auth: process.env.NOTION_API_KEY});
+
+(async () => {
+  const response = await narkdown.unlimited.users.list();
+  console.log(response);
+})();
+```
+
+### `unlimited.search`
+
+> Unlimited version of [Search](https://developers.notion.com/reference/post-search)
+
+```javascript
+const {NarkdownClient} = require('@narkdown/client');
+
+const narkdown = new NarkdownClient({auth: process.env.NOTION_API_KEY});
+
+(async () => {
+  const response = await narkdown.unlimited.search({
+    query: 'External tasks',
+    sort: {
+      direction: 'ascending',
+      timestamp: 'last_edited_time',
+    },
   });
   console.log(response);
 })();
