@@ -19,7 +19,7 @@ const notionFaker: NotionFaker = new NotionFaker();
 const TIMEOUT = 1000 * 60 * 10;
 
 describe('unlimited.blocks.children.list', () => {
-  const CHILD_COUNT = 300;
+  const CHILD_COUNT = 101;
   let TEST_PAGE_ID: string;
   let response: ListBlockChildrenResponse;
 
@@ -115,7 +115,7 @@ describe('unlimited.blocks.children.list', () => {
 });
 
 describe('unlimited.databases.query', () => {
-  const ROW_COUNT = 300;
+  const ROW_COUNT = 101;
   let TEST_PAGE_ID: string;
   let TEST_DATABASE_ID: string;
   let response: QueryDatabaseResponse;
@@ -316,7 +316,7 @@ describe('unlimited.users.list', () => {
 });
 
 describe('unlimited.search', () => {
-  const ROW_COUNT = 300;
+  const ROW_COUNT = 101;
   const SOME_UNIQUE_STRING_FOR_SEARCH = 'SOME_UNIQUE_STRING_FOR_SEARCH';
   let TEST_PAGE_ID: string;
   let TEST_DATABASE_ID: string;
@@ -401,7 +401,7 @@ describe('unlimited.search', () => {
   it(
     'results.length',
     async () => {
-      expect(response.results.length).toBe(ROW_COUNT);
+      expect(response.results.length).toBeGreaterThan(100); // NOTE: Notion API has a limit of 100 results
     },
     TIMEOUT,
   );

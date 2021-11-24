@@ -28,6 +28,7 @@
     "clean": "yarn clean:dist && yarn clean:modules",
     "clean:dist": "rimraf dist",
     "clean:modules": "rimraf node_modules",
+    "codecov": "yarn test:coverage && codecov",
     "format": "prettier --ignore-path ./node_modules/@younho9/prettier-config/.prettierignore",
     "format:pkg": "sort-package-json",
     "git:commit-msg": "commitlint --edit",
@@ -36,7 +37,8 @@
     "lint": "xo",
     "prepare": "yarn git:install-hooks",
     "release": "npx np",
-    "test": "xo && jest"
+    "test": "xo && jest",
+    "test:coverage": "jest --coverage"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
@@ -89,6 +91,7 @@
     "@types/jest": "27.0.2",
     "@types/node": "16.11.6",
     "@younho9/prettier-config": "2.2.4",
+    "codecov": "3.8.3",
     "dotenv": "10.0.0",
     "husky": "7.0.4",
     "jest": "27.3.1",
