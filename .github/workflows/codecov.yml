@@ -1,12 +1,6 @@
 name: codecov
 
-on:
-  schedule:
-    - cron: 0 0 * * * # at 00:00 AM (UTC) on everyday.
-  push:
-    branches:
-      - ci/**
-  workflow_dispatch: {}
+on: [push]
 
 jobs:
   codecov:
@@ -14,7 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+
+      - name: Generate coverage report
+        run: |
+          yarn install && yarn codecov
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          ENTRY_POINT_PAGE_ID: ${{ secrets.ENTRY_POINT_PAGE_ID }}
+
       - uses: codecov/codecov-action@v2
         with:
           verbose: true
