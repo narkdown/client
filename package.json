@@ -77,6 +77,7 @@
   },
   "prettier": "@younho9/prettier-config",
   "dependencies": {
+    "@narkdown/notion-utils": "0.1.0",
     "@notionhq/client": "0.4.4"
   },
   "devDependencies": {
@@ -86,7 +87,6 @@
     "@babel/preset-typescript": "7.16.0",
     "@commitlint/cli": "13.2.1",
     "@commitlint/config-conventional": "13.2.0",
-    "@narkdown/notion-faker": "0.5.1",
     "@tsconfig/node12": "1.0.9",
     "@types/faker": "5.5.9",
     "@types/jest": "27.0.2",
