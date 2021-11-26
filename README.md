@@ -3,6 +3,7 @@
 > Get unlimited response of Notion API
 
 [![codecov](https://codecov.io/gh/narkdown/client/branch/main/graph/badge.svg)](https://codecov.io/gh/narkdown/client)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 [![Version: v0.3.1](https://img.shields.io/badge/Version-v0.3.1-green)](https://github.com/narkdown/client/releases/tag/v0.3.1)
 [![license: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
