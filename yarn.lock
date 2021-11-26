@@ -1356,10 +1356,10 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@narkdown/notion-faker@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@narkdown/notion-faker/-/notion-faker-0.5.0.tgz#e9fe75923aed0440a50933e42fb0e4ba6cf85df1"
-  integrity sha512-XZAjU+WffB2clYCZwPvmoq9vsvL2Ecoix+Ij/gUmPArZDj+pTDTyHrLikkUFc4Y7MRKlUcSNtp5+mux+8jzdgA==
+"@narkdown/notion-faker@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@narkdown/notion-faker/-/notion-faker-0.5.1.tgz#99e6f6861dcb7793e9081215119d40ed790e8889"
+  integrity sha512-epNoUX3Up52B2pR0GmhxvB/oAPpZfXpgr3sulY+Al3cCf6JbEj6FDG1JNI2eEB3HfhrL1IlEcvePBb1tWdC+rA==
   dependencies:
     "@notionhq/client" "0.4.4"
     "@types/faker" "5.5.9"
