@@ -34,6 +34,7 @@
     "git:commit-msg": "commitlint --edit",
     "git:install-hooks": "husky install",
     "git:pre-commit": "lint-staged",
+    "git:pre-push": "yarn test && yarn build",
     "lint": "xo",
     "prepare": "yarn git:install-hooks",
     "release": "npx np",
