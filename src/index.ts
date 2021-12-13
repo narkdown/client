@@ -151,3 +151,10 @@ export class NarkdownClient extends NotionClient {
     },
   };
 }
+
+export * from '@notionhq/client/build/src/api-endpoints';
+export * from '@notionhq/client/build/src/Client';
+export * from '@notionhq/client/build/src/errors';
+export * from '@notionhq/client/build/src/fetch-types';
+export * from '@notionhq/client';
+export * from '@notionhq/client/build/src/type-utils';
